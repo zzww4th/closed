@@ -1,4 +1,4 @@
-[[build]]
+[build]
   command = "npm ci && npm run build"   # 如果有构建步骤，保持原有
   functions = "netlify/functions"
   publish = "public"                     # <-- 把根目录改为 public（如果原来是 .）
@@ -11,6 +11,7 @@
   force = true
   # 通过 query 参数把真实的文件路径传给函数
   # Netlify 会把原始路径保存在 event.path, 我们在函数里自行解析
+
 
 
 
