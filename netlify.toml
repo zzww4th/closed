@@ -1,0 +1,15 @@
+[[build]
+  command = "npm ci && npm run build"   # 如果有构建步骤，保持原有
+  functions = "netlify/functions"
+  publish = "public"                     # <-- 把根目录改为 public（如果原来是 .）
+
+# 将所有对 /protected/* 的请求转发到函数
+[[redirects]]
+  from = "/protected/*"
+  to = "/.netlify/functions/serve-protected"
+  status = 200            # 内部 rewrite，保持原 URL（用户看到的仍是 /protected/xxx）
+  force = true
+  # 通过 query 参数把真实的文件路径传给函数
+  # Netlify 会把原始路径保存在 event.path, 我们在函数里自行解析
+
+

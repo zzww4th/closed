@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Protected Content</title>
+</head>
+<body>
+<h1>🎉 已登录，欢迎访问受保护的内容！</h1>
+<button id="logout">Logout</button>
+
+<script>
+  // 简单的 token 检查（同前文示例）
+  const token = localStorage.getItem('authToken');
+  if (!token) { window.location.href = '/'; }
+
+  document.getElementById('logout').addEventListener('click', () => {
+    localStorage.removeItem('authToken');
+    window.location.href = '/';
+  });
+</script>
+</body>
+</html>

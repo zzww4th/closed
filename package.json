@@ -1,0 +1,25 @@
+{
+  "name": "password-protected-site",
+  "version": "1.0.0",
+  "description": "A password protected website using Netlify",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^14.0.0"
+  },
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "npm ci"
+  },
+  "netlify": {
+    "functions": "netlify/functions",
+    "publish": "."
+  }
+}

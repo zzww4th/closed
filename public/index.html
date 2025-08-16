@@ -1,0 +1,22 @@
+<script>
+  const form = document.getElementById('loginForm');
+  const error = document.getElementById('errorMsg');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const pwd = document.getElementById('password').value;
+
+    const res = await fetch('/.netlify/functions/validate-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: pwd })
+    });
+
+    if (res.ok) {
+      // 登录成功 → 跳转受保护页面
+      window.location.href = '/protected/';
+    } else {
+      error.style.display = 'block';
+    }
+  });
+</script>
